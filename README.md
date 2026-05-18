@@ -10,10 +10,7 @@ fenics_hpc_cases/
 ├── case1_elasticity_amg.py
 ├── case2_stokes_fieldsplit.py
 ├── case2_stokes_fieldsplit.md
-├── export_field_figures.py
-└── results/
-    ├── case1_elasticity_amg/
-    └── case2_stokes_fieldsplit/
+└── export_field_figures.py
 ```
 
 ## 环境
