@@ -15,13 +15,25 @@ fenics_hpc_cases/
 
 ## 环境
 
-使用已有 Conda 环境：
+从零创建本项目使用的 FEniCSx 环境：
+
+```bash
+conda create -n fenicsx-env -c conda-forge \
+  python=3.11 \
+  fenics-dolfinx=0.10.0 \
+  mpich mpi4py petsc4py \
+  matplotlib pyvista
+```
+
+验证环境：
 
 ```bash
 conda run -n fenicsx-env python -c "import dolfinx, petsc4py, mpi4py; print(dolfinx.__version__)"
+conda run -n fenicsx-env mpirun -n 2 python -c \
+  "from mpi4py import MPI; print(MPI.COMM_WORLD.Get_rank(), MPI.COMM_WORLD.Get_size())"
 ```
 
-本机验证版本为 DOLFINx `0.10.0`。
+本机验证版本为 DOLFINx `0.10.0`。如果 conda-forge 上的包版本发生变化，可以去掉 `=0.10.0` 安装当前版本，但应重新运行 `--small` 快速验证。
 
 ## 快速运行
 
